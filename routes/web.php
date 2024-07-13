@@ -3,6 +3,7 @@
 use App\Http\Controllers\HoangnvController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,3 +42,13 @@ Route::get('get-product/{id}/{name?}', [ProductController::class, 'getProduct'])
 // Params
 // http://127.0.0.1:8000/update-product?id=3&name=iphone
 Route::get('update-product', [ProductController::class, 'updateProduct']);
+
+
+Route::group(['prefix' => 'users', 'as' => 'users.'], function(){
+    Route::get('list-users', [UserController::class, 'listUsers'])->name('listUsers');
+    Route::get('add-users', [UserController::class, 'addUsers'])->name('addUsers');
+    Route::post('add-users', [UserController::class, 'addPostUsers'])->name('addPostUsers');
+    Route::get('delete-users/{userId}', [UserController::class, 'deleteUsers'])->name('deleteUsers');
+    Route::get('update-users/{userId}', [UserController::class, 'updateUsers'])->name('updateUsers');
+    Route::post('update-users', [UserController::class, 'updatePostUsers'])->name('updatePostUsers');
+});
