@@ -10,7 +10,11 @@
 <body>
 
     <div class="container mt-4">
-        <a class="btn btn-success" href="{{ route('products.addProducts') }}">Thêm sản phẩm</a>
+        <a class="btn btn-success mb-3" href="{{ route('products.addProducts') }}">Thêm sản phẩm</a>
+        <form class="d-flex mb-2" style="max-width: 300px" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="query" value="{{ isset($query) ? $query : '' }}">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
         <table class="table">
             <thead>
                 <tr>
@@ -32,7 +36,7 @@
                         <td>{{ $product->view }}</td>
                         <td>
                             <a class="btn btn-primary" href="{{ route('products.updateProducts', $product->id) }}">Chỉnh sửa</a>
-                            <a class="btn btn-danger" href="{{ route('products.deleteProducts', $product->id) }}">Xóa</a>
+                            <a class="btn btn-danger" href="{{ route('products.deleteProducts', $product->id) }}" onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm')">Xóa</a>
                         </td>
                     </tr>
                 @endforeach
