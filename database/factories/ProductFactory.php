@@ -13,7 +13,7 @@ class ProductFactory extends Factory
     {
         return [
             'name' => $this->faker->word,
-            'product_price' => $this->faker->randomFloat(2, 100, 10000),
+            'price' => $this->faker->randomFloat(2, 100, 10000),
             'image' => $this->faker->url,
             'created_at' => $this->faker->dateTime,
             'updated_at' => $this->faker->dateTime,

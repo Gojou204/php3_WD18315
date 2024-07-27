@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::table('products', function(Blueprint $table){
             // Thêm mới
-            $table->string('image', 500);
+            $table->string('image', 500)->nullable();
             // Sửa
             $table->string('name', 250)->change();
-            // Xóa
-            $table->dropColumn(['view']);
+            // // Xóa
+            // $table->dropColumn(['view']);
             // Rename
-            $table->renameColumn('price', 'product_price');
+            $table->renameColumn('product_price', 'price');
         });
     }
 
