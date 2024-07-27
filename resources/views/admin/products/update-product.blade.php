@@ -22,11 +22,11 @@
             @csrf
             <div class="mb-3">
                 <label for="nameSP">Tên sản phẩm</label>
-                <input type="text" id="nameSP" name="nameSP" class="form-control" value="{{ $value->name }}">
+                <input type="text" id="nameSP" name="nameSP" class="form-control" value="{{ $product->name }}">
             </div>
             <div class="mb-3">
                 <label for="priceSP">Giá sản phẩm</label>
-                <input type="text" id="priceSP" name="priceSP" class="form-control" value="{{ $value->price }}">
+                <input type="text" id="priceSP" name="priceSP" class="form-control" value="{{ $product->price }}">
             </div>
             <div class="mb-3">
                 <label for="imageSP">Ảnh sản phẩm</label><br>
