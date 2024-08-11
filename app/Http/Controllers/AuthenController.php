@@ -14,6 +14,18 @@ class AuthenController extends Controller
     }
 
     public function postLogin(Request $req){
+
+        // $req->validate([
+        //     'email' => 'required|email|exists:user,email',
+        //     'password' => 'required|min:6',
+        // ], [
+        //     'email.required' => 'Vui lòng nhập email',
+        //     'email.email' => 'Email không đúng định dạng',
+        //     'email.exists' => 'Email chưa được đăng ký',
+        //     'password.required' => 'Không được để trống password',
+        //     'password.min' => 'Password phải có ít nhất 6 ký tự',
+        // ]);
+
         $dataUserLogin = [
             'email' => $req->email,
             'password' => $req->password,

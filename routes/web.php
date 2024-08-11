@@ -5,6 +5,8 @@
 use App\Http\Controllers\AuthenController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\DashboardController;
+
 // use App\Http\Controllers\ProductController;
 // use App\Http\Controllers\UserController;
 
@@ -76,6 +78,13 @@ Route::group([
         Route::get('update-product/{idProduct}', [ProductController::class, 'updateProduct'])->name('updateProduct');
         Route::patch('update-product/{idProduct}', [ProductController::class, 'updatePatchProduct'])->name('updatePatchProduct');
     });
+});
+
+Route::group([
+    'prefix' => 'users',
+    'as' => 'users.',
+], function(){
+    Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 });
 
 Route::get('login', [AuthenController::class, 'login'])->name('login');
